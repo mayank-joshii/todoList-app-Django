@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your tasks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        .table {
+            
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table th,
+        .table td {
+            border: 1px solid #dee2e6;
+            padding: 12px 29px;
+        }
+
+        .table thead th {
+            background-color: #f8f9fa;
+        }
+        .center{
+            display: flex;
+            
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">TODO</a></li>
+            <li><a href="tasks">Tasks</a></li>
+
+        </ul>
+    </nav>
+    <h2 class="center">Here is a list of the tasks !</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Task title</th>
+                <th scope="col">Task description</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{task.tasktitle}}</td>
+                <td>{{task.taskdescp}}</td>
+                
+            </tr>
+            {% endfor %}
+            
+            
+        </tbody>
+    </table>
+    
+</body>
+
+</html>
